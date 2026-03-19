@@ -1,4 +1,11 @@
+import parseFile from './parsers.js';
+
 export default function genDiff(filepath1, filepath2, format = 'stylish') {
+  const data1 = parseFile(filepath1);
+  const data2 = parseFile(filepath2);
   
-  return `Comparing ${filepath1} and ${filepath2} with format: ${format}`;
+  console.log('File 1 data:', data1);
+  console.log('File 2 data:', data2);
+  
+  return 'Difference will be here';
 }

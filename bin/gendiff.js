@@ -11,7 +11,13 @@ program
   .argument('<filepath1>', 'path to first configuration file')
   .argument('<filepath2>', 'path to second configuration file')
   .action((filepath1, filepath2, options) => {
-    console.log(genDiff(filepath1, filepath2, options.format));
+    try {
+      const diff = genDiff(filepath1, filepath2, options.format);
+      console.log(diff);
+    } catch (error) {
+      console.error('Error:', error.message);
+      process.exit(1);
+    }
   });
 
 program.parse();
