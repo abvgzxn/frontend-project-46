@@ -1,6 +1,0 @@
-node_modules/
-coverage/
-__fixtures__/
-*.log
-.DS_Store
-bin/

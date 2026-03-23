@@ -1,4 +1,3 @@
-cat > README.md << 'EOF'
 # Вычислитель отличий
 
 [![CI Pipeline](https://github.com/abvgzxn/frontend-project-46/actions/workflows/ci.yml/badge.svg)](https://github.com/abvgzxn/frontend-project-46/actions/workflows/ci.yml)
