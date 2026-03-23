@@ -49,7 +49,7 @@ describe('gendiff', () => {
     fs.writeFileSync(empty2, '{}');
 
     const result = genDiff(empty1, empty2);
-    expect(result).toBe('{\n}');
+    expect(result).toBe('{}');
   });
 
   it('should handle file with added keys', () => {

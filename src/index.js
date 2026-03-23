@@ -15,6 +15,10 @@ const genDiff = (filepath1, filepath2) => {
   const allKeys = _.union(Object.keys(data1), Object.keys(data2));
   const sortedKeys = _.sortBy(allKeys);
 
+  if (sortedKeys.length === 0) {
+    return '{}';
+  }
+
   const lines = ['{'];
 
   sortedKeys.forEach((key) => {
