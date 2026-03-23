@@ -74,4 +74,3 @@ describe('gendiff', () => {
     expect(result).toContain('- key2: value2');
   });
 });
-
