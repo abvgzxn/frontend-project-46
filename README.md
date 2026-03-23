@@ -1,11 +1,11 @@
-# Frontend Project 46
-
-[![CI Status](https://github.com/your-username/frontend-project-46/actions/workflows/ci.yml/badge.svg)](https://github.com/abvgzxn/frontend-project-46/actions/workflows/ci.yml)
-[![Test Coverage](https://codecov.io/gh/your-username/frontend-project-46/branch/main/graph/badge.svg)](https://codecov.io/gh/abvgzxn/frontend-project-46)
-
+cat > README.md << 'EOF'
 # Вычислитель отличий
 
-Утилита для сравнения двух JSON-файлов и вывода различий.
+[![CI Pipeline](https://github.com/abvgzxn/frontend-project-46/actions/workflows/ci.yml/badge.svg)](https://github.com/abvgzxn/frontend-project-46/actions/workflows/ci.yml)
+[![Test Coverage](https://sonarcloud.io/api/project_badges/measure?project=abvgzxn_frontend-project-46&metric=coverage)](https://sonarcloud.io/summary/new_code?id=abvgzxn_frontend-project-46)
+[![Maintainability](https://sonarcloud.io/api/project_badges/measure?project=abvgzxn_frontend-project-46&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=abvgzxn_frontend-project-46)
+
+Утилита для сравнения двух конфигурационных файлов и вывода различий.
 
 ## Установка
 
@@ -29,6 +29,14 @@ gendiff __fixtures__/file1.json __fixtures__/file2.json
   + timeout: 20
   + verbose: true
 }
+```
+### Разработка
+```
+make install       # Установка зависимостей
+make lint          # Проверка кода линтером
+make test          # Запуск тестов
+make test-coverage # Запуск тестов с покрытием
+make ci            # Запуск всех проверок
 ```
 
 [Link](https://asciinema.org/a/thVAhAj2BbHYoKyl)
