@@ -1,4 +1,6 @@
-import { describe, it, expect, beforeEach, afterEach } from '@jest/globals';
+import {
+  describe, it, expect, beforeEach, afterEach,
+} from '@jest/globals';
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
@@ -42,10 +44,10 @@ describe('gendiff', () => {
   it('should handle empty objects', () => {
     const empty1 = path.join(tempDir, 'empty1.json');
     const empty2 = path.join(tempDir, 'empty2.json');
-    
+
     fs.writeFileSync(empty1, '{}');
     fs.writeFileSync(empty2, '{}');
-    
+
     const result = genDiff(empty1, empty2);
     expect(result).toBe('{}');
   });
@@ -53,10 +55,10 @@ describe('gendiff', () => {
   it('should handle file with added keys', () => {
     const file1 = path.join(tempDir, 'file1.json');
     const file2 = path.join(tempDir, 'file2.json');
-    
+
     fs.writeFileSync(file1, '{"key1": "value1"}');
     fs.writeFileSync(file2, '{"key1": "value1", "key2": "value2"}');
-    
+
     const result = genDiff(file1, file2);
     expect(result).toContain('+ key2: value2');
   });
@@ -64,10 +66,10 @@ describe('gendiff', () => {
   it('should handle file with removed keys', () => {
     const file1 = path.join(tempDir, 'file1.json');
     const file2 = path.join(tempDir, 'file2.json');
-    
+
     fs.writeFileSync(file1, '{"key1": "value1", "key2": "value2"}');
     fs.writeFileSync(file2, '{"key1": "value1"}');
-    
+
     const result = genDiff(file1, file2);
     expect(result).toContain('- key2: value2');
   });
