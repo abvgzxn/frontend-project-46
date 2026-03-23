@@ -11,16 +11,16 @@ const parseFile = (filepath) => {
 const genDiff = (filepath1, filepath2) => {
   const data1 = parseFile(filepath1);
   const data2 = parseFile(filepath2);
-  
+
   const allKeys = _.union(Object.keys(data1), Object.keys(data2));
   const sortedKeys = _.sortBy(allKeys);
-  
+
   const lines = ['{'];
-  
+
   sortedKeys.forEach((key) => {
     const value1 = data1[key];
     const value2 = data2[key];
-    
+
     if (!_.has(data2, key)) {
       lines.push(`  - ${key}: ${value1}`);
     } else if (!_.has(data1, key)) {
@@ -32,7 +32,7 @@ const genDiff = (filepath1, filepath2) => {
       lines.push(`    ${key}: ${value1}`);
     }
   });
-  
+
   lines.push('}');
   return lines.join('\n');
 };

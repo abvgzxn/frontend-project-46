@@ -1,6 +1,8 @@
 {
-  "host": "hexlet.io",
-  "timeout": 50,
-  "proxy": "123.234.53.22",
-  "follow": false
+  "name": "Test File 1",
+  "version": "1.0.0",
+  "data": {
+    "items": ["item1", "item2", "item3"],
+    "enabled": true
+  }
 }
