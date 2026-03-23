@@ -9,9 +9,12 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["import"],
   "rules": {
     "no-console": "off",
-    "import/extensions": ["error", "ignorePackages"]
+    "no-underscore-dangle": ["error", { "allow": ["__dirname", "__filename"] }],
+    "max-len": ["error", { "code": 120, "ignoreComments": true }],
+    "import/extensions": ["error", "ignorePackages"],
+    "eol-last": ["error", "always"],
+    "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }]
   }
 }
