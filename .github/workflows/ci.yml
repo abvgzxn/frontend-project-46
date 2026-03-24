@@ -46,4 +46,4 @@ jobs:
           -Dsonar.exclusions=coverage/**,__fixtures__/**,**/*.test.js,node_modules/**
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.FRONTEND_PROJECT_46 }}
