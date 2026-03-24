@@ -34,16 +34,17 @@ jobs:
     - name: Run tests with coverage
       run: npm run test:coverage
 
+    - name: Check SONAR_TOKEN exists
+      run: |
+        if [ -n "${{ secrets.SONAR_TOKEN }}" ]; then
+          echo "✅ SONAR_TOKEN is set (length: ${#SONAR_TOKEN})"
+        else
+          echo "❌ SONAR_TOKEN is NOT set"
+          exit 1
+        fi
+
     - name: SonarCloud Scan
       uses: SonarSource/sonarqube-scan-action@v5.0.0
-      with:
-        args: >
-          -Dsonar.projectKey=abvgzxn_frontend_project_46
-          -Dsonar.organization=abvgzxn
-          -Dsonar.sources=src
-          -Dsonar.tests=__tests__
-          -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
-          -Dsonar.exclusions=coverage/**,__fixtures__/**,**/*.test.js,node_modules/**
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.FRONTEND_PROJECT_46 }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
