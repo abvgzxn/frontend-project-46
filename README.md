@@ -1,15 +1,15 @@
 # Вычислитель отличий
 
 [![CI Pipeline](https://github.com/abvgzxn/frontend-project-46/actions/workflows/ci.yml/badge.svg)](https://github.com/abvgzxn/frontend-project-46/actions/workflows/ci.yml)
-[![Test Coverage](https://sonarcloud.io/api/project_badges/measure?project=abvgzxn_frontend-project-46&metric=coverage)](https://sonarcloud.io/summary/new_code?id=abvgzxn_frontend-project-46)
-[![Maintainability](https://sonarcloud.io/api/project_badges/measure?project=abvgzxn_frontend-project-46&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=abvgzxn_frontend-project-46)
+[![Test Coverage](https://sonarcloud.io/api/project_badges/measure?project=abvgzxn_frontend_project_46&metric=coverage)](https://sonarcloud.io/summary/new_code?id=abvgzxn_frontend_project_46)
+[![Maintainability](https://sonarcloud.io/api/project_badges/measure?project=abvgzxn_frontend_project_46&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=abvgzxn_frontend_project_46)
 
 Утилита для сравнения двух конфигурационных файлов и вывода различий.
 
 ## Установка
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/abvgzxn/frontend-project-46.git
 cd frontend-project-46
 npm install
 npm link
@@ -38,4 +38,14 @@ make test-coverage # Запуск тестов с покрытием
 make ci            # Запуск всех проверок
 ```
 
+### Демонстрация
 [Link](https://asciinema.org/a/thVAhAj2BbHYoKyl)
+
+### Технологии 
+— Commander.js — для CLI интерфейса
+
+— Jest — для тестирования
+
+ESLint — для проверки кода
+
+SonarCloud — для анализа качества кода
