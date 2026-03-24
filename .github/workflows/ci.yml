@@ -34,14 +34,16 @@ jobs:
     - name: Run tests with coverage
       run: npm run test:coverage
 
-    - name: Debug Sonar variables
-      run: |
-        echo "SONAR_TOKEN exists: ${{ secrets.SONAR_TOKEN != '' }}"
-        echo "Project key: $(grep sonar.projectKey sonar-project.properties)"
-        echo "Organization: $(grep sonar.organization sonar-project.properties)"
-
     - name: SonarCloud Scan
       uses: SonarSource/sonarqube-scan-action@v5.0.0
+      with:
+        args: >
+          -Dsonar.projectKey=abvgzxn_frontend_project_46
+          -Dsonar.organization=abvgzxn
+          -Dsonar.sources=src
+          -Dsonar.tests=__tests__
+          -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+          -Dsonar.exclusions=coverage/**,__fixtures__/**,**/*.test.js,node_modules/**
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
