@@ -15,8 +15,14 @@ npm install
 npm link
 ```
 
-## Использование:
+### Сравнение JSON файлов
+```
 gendiff __fixtures__/file1.json __fixtures__/file2.json
+```
+### Сравнение YAML файлов
+```
+gendiff __fixtures__/file1.yml __fixtures__/file2.yml
+```
 
 ### Пример вывода:
 ```
@@ -29,6 +35,12 @@ gendiff __fixtures__/file1.json __fixtures__/file2.json
   + verbose: true
 }
 ```
+
+### Поддерживаемые форматы
+— JSON — файлы с расширением .json
+
+— YAML — файлы с расширением .yml или .yaml
+
 ### Разработка
 ```
 make install       # Установка зависимостей
@@ -39,13 +51,18 @@ make ci            # Запуск всех проверок
 ```
 
 ### Демонстрация
-[Link](https://asciinema.org/a/thVAhAj2BbHYoKyl)
+
+[JSON](https://asciinema.org/a/thVAhAj2BbHYoKyl)
+
+[YAML](https://asciinema.org/a/fhJ644Yf1y50YWhK)
 
 ### Технологии 
 — Commander.js — для CLI интерфейса
 
 — Jest — для тестирования
 
-ESLint — для проверки кода
+— ESLint — для проверки кода
 
-SonarCloud — для анализа качества кода
+— SonarCloud — для анализа качества кода
+
+— js-yaml — для парсинга YAML файлов
