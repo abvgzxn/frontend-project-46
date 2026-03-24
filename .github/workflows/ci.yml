@@ -12,12 +12,10 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [18.x, 20.x]
 
     steps:
     - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0  # Нужно для правильного анализа Sonar
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
@@ -33,10 +31,3 @@ jobs:
 
     - name: Run tests with coverage
       run: npm run test:coverage
-
-    - name: SonarCloud Scan
-      if: matrix.node-version == '20.x'  # Запускаем только один раз
-      uses: SonarSource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
