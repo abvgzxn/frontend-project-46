@@ -4,7 +4,7 @@
 [![Test Coverage](https://sonarcloud.io/api/project_badges/measure?project=abvgzxn_frontend_project_46&metric=coverage)](https://sonarcloud.io/summary/new_code?id=abvgzxn_frontend_project_46)
 [![Maintainability](https://sonarcloud.io/api/project_badges/measure?project=abvgzxn_frontend_project_46&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=abvgzxn_frontend_project_46)
 
-Утилита для сравнения двух конфигурационных файлов и вывода различий.
+Утилита для сравнения двух конфигурационных файлов (JSON или YAML) с поддержкой вложенных структур.
 
 ## Установка
 
@@ -23,6 +23,21 @@ gendiff __fixtures__/file1.json __fixtures__/file2.json
 ```
 gendiff __fixtures__/file1.yml __fixtures__/file2.yml
 ```
+### Сравнение с выводом в стиле stylish (по умолчанию)
+```
+gendiff __fixtures__/file1-nested.json __fixtures__/file2-nested.json
+```
+### Сравнение с выводом в формате plain
+```
+gendiff -f plain __fixtures__/file1-nested.json __fixtures__/file2-nested.json
+```
+
+## Форматеры вывода
+
+| Форматер | Описание | Пример |
+|----------|----------|--------|
+| `stylish` | Древовидный вывод с отступами | [Демо](https://asciinema.org/a/wIYxJDXf9RByHN81) |
+| `plain` | Плоский вывод в виде текстовых описаний | [Демо](https://asciinema.org/a/MpqKDUrWNNxddZG0) |
 
 ### Пример вывода:
 ```
@@ -34,6 +49,21 @@ gendiff __fixtures__/file1.yml __fixtures__/file2.yml
   + timeout: 20
   + verbose: true
 }
+```
+
+### Пример вывода в формате plain
+```
+Property 'common.follow' was added with value: false
+Property 'common.setting2' was removed
+Property 'common.setting3' was updated. From true to null
+Property 'common.setting4' was added with value: 'blah blah'
+Property 'common.setting5' was added with value: [complex value]
+Property 'common.setting6.doge.wow' was updated. From '' to 'so much'
+Property 'common.setting6.ops' was added with value: 'vops'
+Property 'group1.baz' was updated. From 'bas' to 'bars'
+Property 'group1.nest' was updated. From [complex value] to 'str'
+Property 'group2' was removed
+Property 'group3' was added with value: [complex value]
 ```
 
 ### Поддерживаемые форматы
@@ -56,7 +86,12 @@ make ci            # Запуск всех проверок
 
 [YAML](https://asciinema.org/a/fhJ644Yf1y50YWhK)
 
-[Ссылка](https://asciinema.org/a/u372yBi7OzdQeHA1)
+[Вложенные структуры](https://asciinema.org/a/u372yBi7OzdQeHA1)
+
+[Stylish формат](https://asciinema.org/a/wIYxJDXf9RByHN81)
+
+[Plain формат](https://asciinema.org/a/MpqKDUrWNNxddZG0)
+
 
 ### Технологии 
 — Commander.js — для CLI интерфейса
@@ -68,3 +103,5 @@ make ci            # Запуск всех проверок
 — SonarCloud — для анализа качества кода
 
 — js-yaml — для парсинга YAML файлов
+
+— Lodash — вспомогательные функции
