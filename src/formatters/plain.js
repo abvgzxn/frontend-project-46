@@ -10,16 +10,6 @@ const stringify = (value) => {
   return String(value);
 };
 
-const formatValue = (value) => {
-  if (_.isObject(value) && value !== null) {
-    return '[complex value]';
-  }
-  if (_.isString(value)) {
-    return `'${value}'`;
-  }
-  return value;
-};
-
 const plain = (ast, parentPath = '') => {
   const lines = ast.flatMap((node) => {
     const fullPath = parentPath ? `${parentPath}.${node.key}` : node.key;
