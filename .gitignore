@@ -3,3 +3,7 @@ node_modules
 # Temporary files
 tests/
 *.tmp
+
+# Sonar
+.sonarlint/
+.scannerwork/

@@ -1,5 +1,3 @@
-import fs from 'fs';
-import path from 'path';
 import parseFile from './parsers.js';
 import buildAst from './buildAst.js';
 import stylish from './formatters/stylish.js';

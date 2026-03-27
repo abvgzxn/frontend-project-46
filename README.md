@@ -56,6 +56,8 @@ make ci            # Запуск всех проверок
 
 [YAML](https://asciinema.org/a/fhJ644Yf1y50YWhK)
 
+[Ссылка](https://asciinema.org/a/u372yBi7OzdQeHA1)
+
 ### Технологии 
 — Commander.js — для CLI интерфейса
 

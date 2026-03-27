@@ -7,7 +7,12 @@ const stringify = (value, depth) => {
     return String(value);
   }
 
-  const lines = Object.entries(value).map(([key, val]) => {
+  const entries = Object.entries(value);
+  if (entries.length === 0) {
+    return '{}';
+  }
+
+  const lines = entries.map(([key, val]) => {
     const formattedValue = _.isObject(val) ? stringify(val, depth + 1) : val;
     return `${indent(depth + 1)}  ${key}: ${formattedValue}`;
   });
@@ -18,17 +23,23 @@ const stringify = (value, depth) => {
 const stylish = (ast, depth = 1) => {
   const lines = ast.map((node) => {
     const currentIndent = indent(depth);
-    const currentIndentWithSign = indent(depth);
 
     switch (node.type) {
       case 'nested':
-        return `${currentIndent}  ${node.key}: {\n${stylish(node.children, depth + 1)}\n${currentIndent}  }`;
+        if (node.children.length === 0) {
+          return `${currentIndent}  ${node.key}: {}`;
+        }
+        return `${currentIndent}  ${node.key}: {\n${
+          stylish(node.children, depth + 1)
+        }\n${currentIndent}  }`;
       case 'added':
         return `${currentIndent}+ ${node.key}: ${stringify(node.value, depth)}`;
       case 'removed':
         return `${currentIndent}- ${node.key}: ${stringify(node.value, depth)}`;
       case 'changed':
-        return `${currentIndent}- ${node.key}: ${stringify(node.oldValue, depth)}\n${currentIndent}+ ${node.key}: ${stringify(node.newValue, depth)}`;
+        return `${currentIndent}- ${node.key}: ${
+          stringify(node.oldValue, depth)
+        }\n${currentIndent}+ ${node.key}: ${stringify(node.newValue, depth)}`;
       case 'unchanged':
         return `${currentIndent}  ${node.key}: ${stringify(node.value, depth)}`;
       default:
@@ -39,4 +50,9 @@ const stylish = (ast, depth = 1) => {
   return lines.join('\n');
 };
 
-export default (ast) => `{\n${stylish(ast)}\n}`;
+export default (ast) => {
+  if (ast.length === 0) {
+    return '{}';
+  }
+  return `{\n${stylish(ast)}\n}`;
+};
