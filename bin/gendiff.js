@@ -7,11 +7,12 @@ program
   .name('gendiff')
   .version('1.0.0')
   .description('Compares two configuration files and shows a difference.')
+  .option('-f, --format [type]', 'output format', 'stylish')
   .argument('<filepath1>', 'path to first configuration file')
   .argument('<filepath2>', 'path to second configuration file')
-  .action((filepath1, filepath2) => {
+  .action((filepath1, filepath2, options) => {
     try {
-      const diff = genDiff(filepath1, filepath2);
+      const diff = genDiff(filepath1, filepath2, options.format);
       console.log(diff);
     } catch (error) {
       console.error('Error:', error.message);
