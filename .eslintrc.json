@@ -17,8 +17,7 @@
     "eol-last": ["error", "always"],
     "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }],
     "semi": ["error", "never"],
-    "quotes": ["error", "single"],
-    "arrow-parens": ["error", "as-needed"],
+    "arrow-parens": ["error", "always"],
     "brace-style": ["error", "1tbs", { "allowSingleLine": true }]
   }
 }

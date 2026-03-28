@@ -19,5 +19,4 @@ program
       process.exit(1)
     }
   })
-
-program.parse()
+  .parse()

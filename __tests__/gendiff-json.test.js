@@ -16,7 +16,7 @@ describe('gendiff with json formatter', () => {
     expect(Array.isArray(parsed)).toBe(true)
     expect(parsed.length).toBeGreaterThan(0)
 
-    const commonNode = parsed.find(node => node.key === 'common')
+    const commonNode = parsed.find((node) => node.key === 'common')
     expect(commonNode).toBeDefined()
     expect(commonNode.type).toBe('nested')
     expect(commonNode.children).toBeDefined()
@@ -32,7 +32,7 @@ describe('gendiff with json formatter', () => {
     const parsed = JSON.parse(result)
     expect(Array.isArray(parsed)).toBe(true)
 
-    const keys = parsed.map(node => node.key)
+    const keys = parsed.map((node) => node.key)
     expect(keys).toContain('follow')
     expect(keys).toContain('host')
     expect(keys).toContain('proxy')
