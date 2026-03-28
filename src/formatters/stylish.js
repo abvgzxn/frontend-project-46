@@ -21,7 +21,7 @@ const stringify = (value, depth) => {
 }
 
 const stylish = (ast, depth = 1) => {
-  const lines = ast.map((node) => {
+  const lines = ast.map(node => {
     const currentIndent = indent(depth)
 
     switch (node.type) {
@@ -50,7 +50,7 @@ const stylish = (ast, depth = 1) => {
   return lines.join('\n')
 }
 
-export default (ast) => {
+export default ast => {
   if (ast.length === 0) {
     return '{}'
   }
