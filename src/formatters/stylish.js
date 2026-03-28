@@ -50,7 +50,7 @@ const stylish = (ast, depth = 1) => {
   return lines.join('\n')
 }
 
-export default ast => {
+export default (ast) => {
   if (ast.length === 0) {
     return '{}'
   }
