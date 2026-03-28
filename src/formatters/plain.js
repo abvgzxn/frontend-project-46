@@ -1,36 +1,36 @@
-import _ from 'lodash';
+import _ from 'lodash'
 
-const stringify = (value) => {
+const stringify = value => {
   if (_.isObject(value) && value !== null) {
-    return '[complex value]';
+    return '[complex value]'
   }
   if (_.isString(value)) {
-    return `'${value}'`;
+    return `'${value}'`
   }
-  return String(value);
-};
+  return String(value)
+}
 
 const plain = (ast, parentPath = '') => {
-  const lines = ast.flatMap((node) => {
-    const fullPath = parentPath ? `${parentPath}.${node.key}` : node.key;
+  const lines = ast.flatMap(node => {
+    const fullPath = parentPath ? `${parentPath}.${node.key}` : node.key
 
     switch (node.type) {
       case 'added':
-        return `Property '${fullPath}' was added with value: ${stringify(node.value)}`;
+        return `Property '${fullPath}' was added with value: ${stringify(node.value)}`
       case 'removed':
-        return `Property '${fullPath}' was removed`;
+        return `Property '${fullPath}' was removed`
       case 'changed':
-        return `Property '${fullPath}' was updated. From ${stringify(node.oldValue)} to ${stringify(node.newValue)}`;
+        return `Property '${fullPath}' was updated. From ${stringify(node.oldValue)} to ${stringify(node.newValue)}`
       case 'nested':
-        return plain(node.children, fullPath);
+        return plain(node.children, fullPath)
       case 'unchanged':
-        return [];
+        return []
       default:
-        throw new Error(`Unknown node type: ${node.type}`);
+        throw new Error(`Unknown node type: ${node.type}`)
     }
-  });
+  })
 
-  return lines.join('\n');
-};
+  return lines.join('\n')
+}
 
-export default plain;
+export default plain

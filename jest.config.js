@@ -6,4 +6,4 @@ export default {
   coverageDirectory: 'coverage',
   coverageReporters: ['lcov', 'text', 'clover'],
   moduleFileExtensions: ['js', 'json'],
-};
+}

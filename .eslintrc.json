@@ -15,6 +15,10 @@
     "max-len": ["error", { "code": 120, "ignoreComments": true }],
     "import/extensions": ["error", "ignorePackages"],
     "eol-last": ["error", "always"],
-    "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }]
+    "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }],
+    "semi": ["error", "never"],
+    "quotes": ["error", "single"],
+    "arrow-parens": ["error", "as-needed"],
+    "brace-style": ["error", "1tbs", { "allowSingleLine": true }]
   }
 }
