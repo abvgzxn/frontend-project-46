@@ -31,6 +31,10 @@ gendiff __fixtures__/file1-nested.json __fixtures__/file2-nested.json
 ```
 gendiff -f plain __fixtures__/file1-nested.json __fixtures__/file2-nested.json
 ```
+### Сравнение с выводом в формате json
+```
+gendiff -f json __fixtures__/file1-nested.json __fixtures__/file2-nested.json
+```
 
 ## Форматеры вывода
 
@@ -38,6 +42,8 @@ gendiff -f plain __fixtures__/file1-nested.json __fixtures__/file2-nested.json
 |----------|----------|--------|
 | `stylish` | Древовидный вывод с отступами | [Демо](https://asciinema.org/a/wIYxJDXf9RByHN81) |
 | `plain` | Плоский вывод в виде текстовых описаний | [Демо](https://asciinema.org/a/MpqKDUrWNNxddZG0) |
+| `json` | 	Вывод в формате JSON | [Демо](https://asciinema.org/a/9pNepA4ZcbFkXHPJ0) |
+
 
 ### Пример вывода:
 ```
@@ -66,6 +72,28 @@ Property 'group2' was removed
 Property 'group3' was added with value: [complex value]
 ```
 
+### Пример вывода json
+```
+[
+  {
+    "key": "common",
+    "type": "nested",
+    "children": [
+      {
+        "key": "follow",
+        "type": "added",
+        "value": false
+      },
+      {
+        "key": "setting2",
+        "type": "removed",
+        "value": 200
+      }
+    ]
+  }
+]
+```
+
 ### Поддерживаемые форматы
 — JSON — файлы с расширением .json
 
@@ -82,15 +110,17 @@ make ci            # Запуск всех проверок
 
 ### Демонстрация
 
-[JSON](https://asciinema.org/a/thVAhAj2BbHYoKyl)
+[JSON файлы](https://asciinema.org/a/thVAhAj2BbHYoKyl)
 
-[YAML](https://asciinema.org/a/fhJ644Yf1y50YWhK)
+[YAML файлы](https://asciinema.org/a/fhJ644Yf1y50YWhK)
 
 [Вложенные структуры](https://asciinema.org/a/u372yBi7OzdQeHA1)
 
 [Stylish формат](https://asciinema.org/a/wIYxJDXf9RByHN81)
 
 [Plain формат](https://asciinema.org/a/MpqKDUrWNNxddZG0)
+
+[JSON формат](https://asciinema.org/a/9pNepA4ZcbFkXHPJ0)
 
 
 ### Технологии 
