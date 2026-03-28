@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-const stringify = (value) => {
+const stringify = value => {
   if (_.isObject(value) && value !== null) {
     return '[complex value]'
   }
@@ -11,7 +11,7 @@ const stringify = (value) => {
 }
 
 const plain = (ast, parentPath = '') => {
-  const lines = ast.flatMap((node) => {
+  const lines = ast.flatMap(node => {
     const fullPath = parentPath ? `${parentPath}.${node.key}` : node.key
 
     switch (node.type) {

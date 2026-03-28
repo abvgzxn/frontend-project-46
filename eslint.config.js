@@ -27,7 +27,7 @@ export default [
       'eol-last': ['error', 'always'],
       'no-multiple-empty-lines': ['error', { max: 2, maxEOF: 1 }],
       '@stylistic/semi': ['error', 'never'],
-      '@stylistic/arrow-parens': ['error', 'always'],
+      '@stylistic/arrow-parens': ['error', 'as-needed'],
       '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
       '@stylistic/quotes': ['error', 'single'],
     },
