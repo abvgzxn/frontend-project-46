@@ -9,6 +9,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "plugins": ["@stylistic"],
   "rules": {
     "no-console": "off",
     "no-underscore-dangle": ["error", { "allow": ["__dirname", "__filename"] }],
@@ -16,8 +17,15 @@
     "import/extensions": ["error", "ignorePackages"],
     "eol-last": ["error", "always"],
     "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }],
-    "semi": ["error", "never"],
-    "arrow-parens": ["error", "always"],
-    "brace-style": ["error", "1tbs", { "allowSingleLine": true }]
+    // отключаем стандартные правила, которые заменяем на @stylistic
+    "semi": "off",
+    "arrow-parens": "off",
+    "brace-style": "off",
+    "quotes": "off",
+    // используем версии из плагина
+    "@stylistic/semi": ["error", "never"],
+    "@stylistic/arrow-parens": ["error", "always"],
+    "@stylistic/brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+    "@stylistic/quotes": ["error", "single"]
   }
 }
