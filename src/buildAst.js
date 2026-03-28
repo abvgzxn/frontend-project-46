@@ -4,7 +4,7 @@ const buildAst = (data1, data2) => {
   const allKeys = _.union(Object.keys(data1), Object.keys(data2))
   const sortedKeys = _.sortBy(allKeys)
 
-  return sortedKeys.map(key => {
+  return sortedKeys.map((key) => {
     const value1 = data1[key]
     const value2 = data2[key]
 

@@ -8,7 +8,7 @@ const parsers = {
   yaml: yaml.load,
 }
 
-export default filepath => {
+export default (filepath) => {
   const absolutePath = path.resolve(process.cwd(), filepath)
   const fileContent = fs.readFileSync(absolutePath, 'utf-8')
   const extension = path.extname(filepath).slice(1).toLowerCase()

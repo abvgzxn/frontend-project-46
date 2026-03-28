@@ -21,7 +21,7 @@ const stringify = (value, depth) => {
 }
 
 const stylish = (ast, depth = 1) => {
-  const lines = ast.map(node => {
+  const lines = ast.map((node) => {
     const currentIndent = indent(depth)
 
     switch (node.type) {
